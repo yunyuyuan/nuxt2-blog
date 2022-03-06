@@ -1,0 +1,57 @@
+<h3><sup class="fake-head" id="id-%E8%B5%B7%E5%9B%A0"></sup><a class="header-link" href="#id-%E8%B5%B7%E5%9B%A0"><p>起因</p></a></h3>
+<p>  前段时间收到 nuxt 的推送，说 nuxt3 beta 可以用了，我便打算用 nuxt3+vue3 重新写这个博客。进行得很顺利，但是我尝试 <code>nuxt generate</code> 时却收到报错说 nuxt3 目前暂不支持 generate 静态站点:<span class="image-container"><img data-viewer="" alt="不支持static" title="不支持static" style="width: 70% !important;" src="https://z3.ax1x.com/2021/12/02/oYyu0H.png"><small class="desc"> 不支持 static</small></span>
+  但我重写的心已经有了，无法阻止，遂再次用 nuxt2 写了一遍<img src="/sticker/aru/63.png?ran=1645963181527" alt="sticker">，等后面 nuxt3 能生成静态站点再重写吧。这次删除评论，后台等功能，3 天时间基本就写完，现在博客特别简单，年纪大了，还是喜欢简单点。之前花时间整那么多花里胡哨没卵用的东西，属实中二<img src="/sticker/yellow-face/7.png?ran=1645963181527" alt="sticker"></p>
+<h2><sup class="fake-head" id="id-%E6%95%99%E7%A8%8B"></sup><a class="header-link" href="#id-%E6%95%99%E7%A8%8B"><p>教程</p></a></h2>
+<p>  如果你是编程新手，以下步骤可以教你做一个和本站一样的博客，不需要花钱，甚至不需要电脑，但需要有一定的动手能力，英文阅读 or 翻译工具。我下面用小号做样例。</p>
+<h4><sup class="fake-head" id="id-%E8%B4%A6%E5%8F%B7%E4%BB%A5%E5%8F%8A%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87"></sup><a class="header-link" href="#id-%E8%B4%A6%E5%8F%B7%E4%BB%A5%E5%8F%8A%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87"><p>账号以及环境准备</p></a></h4>
+<ul>
+<li>连接互联网的手机或者电脑，最好可以科学上网，否则下面的网址可能加载很慢或者访问不了。。。</li>
+<li>GitHub 账号，注册地址：<a target="_blank" href="https://github.com/signup">https://github.com/signup</a>，只需要邮箱就行，取名建议用<strong>全英文，数字或连接符</strong>。</li>
+<li>Vercel 账号，地址：<a target="_blank" href="https://vercel.com/signup">https://vercel.com/signup</a>，选择 <em>Continue  with Github</em>，使用刚刚注册的 Github 账号登陆即可。
+<span class="image-container"><img data-viewer="" alt="选择Continue  with Github" title="选择Continue  with Github" style="width: 70% !important;" src="https://s4.ax1x.com/2022/02/25/bE0N2q.png"><small class="desc">选择 Continue  with Github</small></span></li>
+</ul>
+<h4><sup class="fake-head" id="id-%E5%BC%80%E5%A7%8B"></sup><a class="header-link" href="#id-%E5%BC%80%E5%A7%8B"><p>开始</p></a></h4>
+<ol>
+<li>登录注册好的 Github 账号，点击这个链接：<a target="_blank" href="https://github.com/yunyuyuan/nuxt2-blog">https://github.com/yunyuyuan/nuxt2-blog</a>，点击 <code>fork</code>，fork 即是以本博客项目为上游，创造一个你自己的项目。
+<span class="image-container"><img data-viewer="" alt="fork项目" title="fork项目" src="https://s4.ax1x.com/2022/02/25/bEljN8.png"><small class="desc">fork 项目</small></span></li>
+<li>fork 后是这样的，点击进入 <code>config.js</code> 文件：
+<span class="image-container"><img data-viewer="" alt="打开config.js" title="打开config.js" style="width: 70% !important;" src="https://s4.ax1x.com/2022/02/27/bn3ENR.png"><small class="desc">打开 config.js</small></span>
+点击右上角的<strong>铅笔</strong>图标进入编辑模式，修改 <em>githubName</em> 为你账号的名字，我小号叫 <em>fantasticnumber</em>，你需要把它改成自己的 Github 名字：
+<span class="image-container"><img data-viewer="" alt="修改githubName" title="修改githubName" style="width: 70% !important;" src="https://s4.ax1x.com/2022/02/27/bn3V41.png"><small class="desc">修改 githubName</small></span></li>
+<li>其他字段，例如 title（网站标题），SEO_description（SEO 描述），你可以自己改。修改后点击 <code>Commit changes</code>：
+<span class="image-container"><img data-viewer="" alt="修改后点击Commit changes" title="修改后点击Commit changes" style="width: 70% !important;" src="https://s4.ax1x.com/2022/02/27/bn8to9.png"><small class="desc">修改后点击 Commit changes</small></span></li>
+<li>进入 vercel，点击头像，进入 dashboard，点击 <code>New Project</code>：
+<span class="image-container"><img data-viewer="" alt="New Project" title="New Project" style="width: 70% !important;" src="https://s4.ax1x.com/2022/02/25/bE1S3Q.png"><small class="desc">New Project</small></span></li>
+<li>我们要导入刚才在 Github 上 fork 的项目，点击 <code>Add Github Account</code>。
+<span class="image-container"><img data-viewer="" alt="导入" title="导入" style="width: 70% !important;" src="https://s4.ax1x.com/2022/02/25/bE1Pun.png"><small class="desc">导入</small></span>
+在新窗口中选择，选择后，滚动到下面，点击 <code>install</code> 按钮：
+<span class="image-container"><img data-viewer="" alt="选择" title="选择" style="width: 70% !important;" src="https://s4.ax1x.com/2022/02/25/bE1pcj.png"><small class="desc">选择</small></span></li>
+<li>这时已经回到了刚刚的界面，直接点击 <code>import</code>：
+<span class="image-container"><img data-viewer="" alt="import导入" title="import导入" style="width: 70% !important;" src="https://s4.ax1x.com/2022/02/25/bE19js.png"><small class="desc">import 导入</small></span>
+此时会进入配置界面，展开 <code>Build and Output Settings</code>，打开第一行右侧的切换按钮，输入框内输入 <code>npm run generate</code>，然后点击 <code>Deploy</code> 按钮：
+<span class="image-container"><img data-viewer="" alt="deploy" title="deploy" style="width: 70% !important;" src="https://s4.ax1x.com/2022/02/25/bEUK7d.png"><small class="desc">deploy</small></span></li>
+<li>等待一会，Congratulations!，点击图片可以直接进入<strong>你的</strong>博客了，虽然你会发现里面的内容还是我的。。。暂时先不要关闭它。
+<span class="image-container"><img data-viewer="" alt="编译完成！" title="编译完成！" style="width: 70% !important;" src="https://s4.ax1x.com/2022/02/25/bEU89P.png"><small class="desc">编译完成！</small></span></li>
+<li>这时进入 Github，点击右上方的下拉菜单，进入 <code>Settings</code>：
+<span class="image-container"><img data-viewer="" alt="设置界面" title="设置界面" style="width: 70% !important;" src="https://s4.ax1x.com/2022/02/25/bEUltI.png"><small class="desc">设置界面</small></span>
+左侧菜单选择 <code>Developer settings</code>：
+<span class="image-container just-height"><img data-viewer="" alt="点击Developer settings" title="点击Developer settings" style="height: 20rem !important;" src="https://s4.ax1x.com/2022/02/25/bEU1ht.png"><small class="desc">点击 Developer settings</small></span></li>
+<li>进入开发者设置界面，左侧菜单选择 <code>Personal access tokens</code>，然后点击 <code>Genarate new token</code>：
+<span class="image-container"><img data-viewer="" alt="生成token" title="生成token" src="https://s4.ax1x.com/2022/02/25/bEUeXD.png"><small class="desc">生成 token</small></span>
+需要输入三个地方：<ul>
+<li>Note 填上 <code>blog</code>，代表这个 token 是由 blog 使用的。</li>
+<li>Expiration 建议选择 <code>No expiration</code>，代表这个 token 永不过期，当然你也不要泄露给别人，自己最好找个地方保存（我是在微信上发给自己），万一弄丢了就得重新生成一个。</li>
+<li>下方把 <code>repo</code> 勾上。
+<span class="image-container"><img data-viewer="" alt="输入token信息" title="输入token信息" style="width: 70% !important;" src="https://s4.ax1x.com/2022/02/25/bEUu0H.png"><small class="desc">输入 token 信息</small></span>
+然后滚动网页到下方，点击 <code>Generate token</code> 按钮，此时 token 创建完成，<span style="color: red">注意⚠：这个 token 的使用者有权限修改你 Github 上的<strong>所有</strong>仓库，请勿泄露！它只会展示这一次，务必妥善保存</span>。
+<span class="image-container"><img data-viewer="" alt="token生成完毕" title="token生成完毕" style="width: 70% !important;" src="https://s4.ax1x.com/2022/02/25/bEUQAA.png"><small class="desc">token 生成完毕</small></span></li></ul></li>
+<li>进入<strong>你的</strong>博客，随便打开一篇文章，点击右上方小火箭🚀，进入编辑界面，把刚刚保存的 token 填上，点击删除，就可以删除此篇文章了，其他同理。在其它地方点击小火箭🚀有不同表现哦，试试看！<img src="/sticker/aru/3.png?ran=1645963181527" alt="sticker">
+<span class="image-container"><img data-viewer="" alt="删除一篇" title="删除一篇" style="width: 70% !important;" src="https://s4.ax1x.com/2022/02/25/bEUG1f.png"><small class="desc">删除一篇</small></span></li>
+</ol>
+<h3><sup class="fake-head" id="id-%E5%B0%8F%E7%BB%93"></sup><a class="header-link" href="#id-%E5%B0%8F%E7%BB%93"><p>小结</p></a></h3>
+<p>  到此，博客基本完成了，你可以把我的文章记录啥的都删除（嗯。。。有点麻烦），然后开始书写你自己的博客。后续还有一些进阶：</p>
+<ul>
+<li>vercel 可以自定义域名，如果你觉得 <code>xxx.vercel.app</code> 不好，你可以购买一个域名并绑定 vercel。</li>
+<li>网站标题，网站图标，<code>/about</code> 界面的背景图，文字，等等其他部分均可修改，你可以自己去摸索学习，本站是使用 <code>vue</code> 和 <code>nuxt</code> 编写的。</li>
+<li>最后，感谢你使用我的代码！如果你遇到了问题想寻求解答，欢迎给我发送邮件询问（无偿<img src="/sticker/aru/93.png?ran=1645963181527" alt="sticker">），我的邮箱是：<a href="mailto:me@halberd.cn">me@halberd.cn</a>。</li>
+</ul>
