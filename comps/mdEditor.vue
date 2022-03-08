@@ -4,9 +4,9 @@
       <template v-if="canEncrypt">
         <my-button v-if="isAuthor && encrypted" @click="decrypt" style="margin-right: 8px">解密</my-button>
         <b v-if="isAuthor" style="font-size: 13px;">加密:</b>
-        <input v-if="isAuthor" v-model="doEncrypt" type="checkbox" title="加密" style="margin-right: auto;"/>
+        <input v-if="isAuthor" v-model="doEncrypt" type="checkbox" title="加密"/>
       </template>
-      <span @click="showTip=(showTip==='sticker')?false:'sticker'" title="表情"><img src="/sticker/yellow-face/18.png"
+      <span @click="showTip=(showTip==='sticker')?false:'sticker'" style="margin-left: auto;" title="表情"><img src="/sticker/yellow-face/18.png"
                                                                                    alt="sticker"/></span>
       <span @click="showTip=(showTip==='markdown')?false:'markdown'" title="markdown语法"><svg-icon
         name="markdown"/></span>
