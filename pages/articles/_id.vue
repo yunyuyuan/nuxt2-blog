@@ -1,5 +1,5 @@
 <template>
-  <div class="knowledge-detail">
+  <div class="article-detail">
     <div class="captain flex w100" :class="{'no-menu': !menu.length}">
       <div class="article-container">
         <h2>{{item.title}}</h2>
@@ -124,7 +124,8 @@ export default {
 
 <style scoped lang="scss">
 @import "assets/style/var";
-.knowledge-detail{
+
+.article-detail{
   $min-article-size: 500px;
   $menu-size: 240px;
   $menu-margin: 20px;
@@ -275,10 +276,10 @@ export default {
   }
 }
 @media screen and (min-width: 768px) and (max-width: 1050px) {
-  .knowledge-detail {
+  .article-detail {
     width: 100%;
     .captain {
-      width: 100% !important;
+      width: 100vw !important;
       max-width: unset;
       min-width: unset;
       .article-container {
@@ -307,7 +308,7 @@ export default {
   }
 }
 @include mobile {
-  .knowledge-detail {
+  .article-detail {
     width: 100%;
     .captain {
       width: 100% !important;

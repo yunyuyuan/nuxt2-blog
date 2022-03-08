@@ -3,8 +3,8 @@
     <div class="action flex">
       <template v-if="canEncrypt">
         <my-button v-if="isAuthor && encrypted" @click="decrypt" style="margin-right: 8px">解密</my-button>
-        <b v-if="isAuthor" style="font-size: 13px">加密:</b>
-        <input v-if="isAuthor" v-model="doEncrypt" type="checkbox" title="加密"/>
+        <b v-if="isAuthor" style="font-size: 13px;">加密:</b>
+        <input v-if="isAuthor" v-model="doEncrypt" type="checkbox" title="加密" style="margin-right: auto;"/>
       </template>
       <span @click="showTip=(showTip==='sticker')?false:'sticker'" title="表情"><img src="/sticker/yellow-face/18.png"
                                                                                    alt="sticker"/></span>
@@ -199,8 +199,9 @@ export default {
   width: 88vw;
   margin: 20px 0;
   > .action{
-    align-self: flex-end;
+    align-self: stretch;
     margin-bottom: 5px;
+    padding: 0 8px;
     input{
       margin-right: 8px;
       &:not([type]){

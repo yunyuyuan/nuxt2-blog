@@ -1,5 +1,5 @@
 <template>
-  <div class="knowledge-detail">
+  <div class="article-detail">
     <div class="captain flexc w100" v-viewer>
       <div class="info">
         <lazy-img :src="item.cover" alt="cover" :size="['150px', '250px']" viewer/>
@@ -78,7 +78,7 @@ export default {
 @use "sass:math";
 @import "assets/style/var";
 
-.knowledge-detail{
+.article-detail{
   margin: 0 15px 80px 15px;
   .captain{
     margin: auto;
@@ -312,7 +312,7 @@ export default {
   }
 }
 @include mobile{
-  .knowledge-detail {
+  .article-detail {
     width: 100%;
     margin: 0 0 80px 0;
     .captain {
