@@ -8,7 +8,7 @@
         <svg-icon name="write"/>
         <time>{{ item.time | time }}</time>
       </p>
-      <span v-html="text"></span>
+      <article class="--markdown" v-html="text"></article>
     </div>
   </div>
 </template>
@@ -26,14 +26,12 @@ export default {
   async asyncData({params}) {
     const id = parseInt(params.id);
     const item = recordList.find(record => record.id === id);
-    const text = (await import(`!!raw-loader!~/rebuild/records/${id}.txt`)).default;
+    const text = (await import(`!!raw-loader!~/rebuild/records/${id}.html`)).default;
     return {
       item: cloneDeep(item),
       text
     }
   },
-  methods: {
-  }
 }
 </script>
 
@@ -64,15 +62,8 @@ export default {
         line-height: 16px;
       }
     }
-    span{
-      font-size: 15px;
-      letter-spacing: .5px;
-      line-height: 28px;
-      font-family: $font-source-han-sans;
+    article{
       padding: 8px;
-      display: block;
-      word-break: break-word;
-      white-space: pre-line;
     }
   }
 }

@@ -3,7 +3,7 @@
     <edit-header :is-new="id==='new'" :draft-id="draftId" :acting="updating" :can-delete="!!item" @loadDraft="loadDraft" @saveDraft="saveDraft" @update="updateArticle" @delete="deleteArticle"/>
     <div class="body">
       <div class="edit flexc">
-        <div v-if="preview" class="preview flex" v-viewer>
+        <div v-if="!editing" class="preview flex" v-viewer>
           <lazy-img viewer v-for="img in images" :size="['100px', '100px']" :key="img.uid" :alt="img.alt" :src="img.src"/>
         </div>
         <template v-else>
@@ -16,9 +16,14 @@
         </template>
         <div class="button flex">
           <my-button icon="add" @click="images.push({src: '', alt: '', uid: uid++})" title="添加"/>
-          <my-button @click="preview=!preview">{{ !preview?'预览':'编辑' }}</my-button>
         </div>
-        <textarea class="text" v-model="text" placeholder="内容"></textarea>
+        <md-editor
+          ref="mdEditor"
+          :editing.sync="editing"
+          :canEncrypt="false"
+          :has-menu="false"
+          :text-input="text"
+          :stickers="stickers"/>
       </div>
     </div>
   </div>
@@ -32,17 +37,19 @@ import {recordList} from "~/utils/data";
 import MyButton from "~/comps/button";
 import {cloneDeep} from "lodash/lang";
 import {getNow} from "~/utils/_dayjs";
+import MdEditor from "~/comps/mdEditor";
 
 export default {
   name: "edit",
-  components: {MyButton, EditHeader},
+  components: {MdEditor, MyButton, EditHeader},
   data () {
     return {
+      editing: true,
       updating: false,
       preview: false
     }
   },
-  async asyncData({params}) {
+  async asyncData({$stickers, params}) {
     const id = parseInt(params.id)||'new';
     const item = cloneDeep(recordList.find(v => v.id===id));
     let uid = 0;
@@ -52,12 +59,13 @@ export default {
       })
     }):[];
     return {
+      stickers: $stickers,
       id,
       draftId: `draft-record-${id}`,
       uid,
       item,
       images,
-      text: item?(await import(`!!raw-loader!~/rebuild/records/${id}.txt`)).default:'',
+      text: item?(await import(`!!raw-loader!~/rebuild/records/${id}.md`)).default:'',
     }
   },
   methods: {
@@ -73,13 +81,15 @@ export default {
       this.text = data.text;
     },
     saveDraft () {
+      const { text } = this.$refs.mdEditor.getData();
       localStorage.setItem(this.draftId, JSON.stringify({
         images: this.images,
-        text: this.text
+        text,
       }));
     },
     async updateArticle () {
-      if (!this.text || !this.images.length || this.images.some(i => !i.src)) {
+      const { text, mdHtml } = this.$refs.mdEditor.getData();
+      if (!text || !this.images.length || this.images.some(i => !i.src)) {
         return notify({
           title: '字段错误',
           type: 'error',
@@ -102,8 +112,11 @@ export default {
           json.push(newData)
         }
       }),{
-        path: `rebuild/records/${newId}.txt`,
-        content: this.text
+        path: `rebuild/records/${newId}.md`,
+        content: text
+      },{
+        path: `rebuild/records/${newId}.html`,
+        content: mdHtml
       }])) {
         notify({
           title: '完成！',
@@ -120,7 +133,8 @@ export default {
         if (await createCommit(` delete record:${this.id}`, [processJSON('record', recordList, json => {
           json.splice(json.findIndex(v => v.id === this.id), 1);
         })], [
-          {path: `rebuild/records/${this.id}.txt`},
+          {path: `rebuild/records/${this.id}.md`},
+          {path: `rebuild/records/${this.id}.html`},
         ])) {
           notify({
             title: '完成！',
@@ -140,7 +154,7 @@ export default {
 @import "assets/style/var";
 
 .editor {
-  width: 800px;
+  max-width: 800px;
   padding: 0 20px;
   margin: auto;
   align-items: stretch;
