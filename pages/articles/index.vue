@@ -90,7 +90,7 @@ export default {
     align-self: stretch;
     .tags{
       flex-wrap: wrap;
-      ::v-deep .tag {
+      .common-tag {
         margin: 0 10px 10px 0;
       }
     }

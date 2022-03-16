@@ -219,7 +219,7 @@ export default {
         height: 16px;
       }
     }
-    span{
+    > span{
       cursor: pointer;
       width: 24px;
       height: 24px;

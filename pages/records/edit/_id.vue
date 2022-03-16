@@ -185,7 +185,7 @@ export default {
       .preview {
         width: 100%;
         flex-wrap: wrap;
-        ::v-deep img {
+        img {
           margin: 0 8px 8px 0;
           max-width: 200px;
           max-height: 100px;

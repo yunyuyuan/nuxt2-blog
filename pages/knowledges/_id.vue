@@ -88,7 +88,7 @@ export default {
       padding-bottom: 20px;
       position: relative;
       display: flex;
-      ::v-deep .--lazy-img{
+      .--lazy-img{
         flex-shrink: 0;
         border: 1px solid #919191;
         box-shadow: 0 0 16px #4f4f4f;
@@ -320,7 +320,7 @@ export default {
       min-width: unset;
       .info {
         flex-direction: column;
-        ::v-deep .--lazy-img{
+        .--lazy-img{
           margin-bottom: 30px;
           width: 60%;
           img {

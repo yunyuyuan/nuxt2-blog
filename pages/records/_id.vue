@@ -43,7 +43,7 @@ export default {
   .images {
     display: flex;
     flex-wrap: wrap;
-    ::v-deep img {
+    img {
       margin: 0 10px 10px 0;
       max-width: 600px;
       max-height: 300px;
@@ -51,7 +51,7 @@ export default {
   }
   .text{
     margin-top: 10px;
-    p {
+    > p {
       border-bottom: 1px solid #b9b9b9;
       svg {
         width: 16px;
