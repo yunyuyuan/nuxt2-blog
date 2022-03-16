@@ -2,7 +2,6 @@ import path from "path";
 import config from "./config";
 import * as fs from "fs";
 import dayjs from "./utils/_dayjs";
-import chalk from 'chalk';
 
 export default {
   // Target: https://go.nuxtjs.dev/config-target
@@ -55,7 +54,7 @@ export default {
       done(builder) {
         fs.writeFileSync(path.resolve(__dirname, './dist/sitemap.xml'),
           genRss(JSON.parse(fs.readFileSync(path.resolve(__dirname, './rebuild/json/article.json')).toString())));
-        console.log(chalk.green('√') + ' sitemap.xml generated');
+        console.log('√ sitemap.xml generated');
       }
     }
   },
