@@ -93,7 +93,7 @@ export default {
       align-items: center;
       width: 100%;
       text-decoration: none;
-      padding: 12px 0;
+      padding: 25px 0 15px 0;
       transition: $common-transition;
       border-radius: 5px;
       position: relative;
@@ -146,7 +146,6 @@ export default {
         word-break: keep-all;
       }
       &:hover {
-        background: #ededed;
         span:after {
           opacity: 1;
         }
