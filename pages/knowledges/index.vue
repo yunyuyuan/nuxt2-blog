@@ -73,7 +73,7 @@ export default {
         box-shadow: 0 0 6px rgba(0, 0, 0, .3);
       }
       b{
-        font-size: 10px;
+        font-size: 12px;
         width: 25px;
         height: 17px;
         line-height: 17px;

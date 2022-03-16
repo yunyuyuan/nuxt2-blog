@@ -34,6 +34,7 @@
         color: rgb(0, 131, 171);
         text-shadow: 0 0 1px rgba(0, 131, 171, 30);
         font-size: math.div(1rem, $size) + 0.9rem;
+        display: flex;
         &:hover:before{
           content: '#';
           position: absolute;
@@ -317,7 +318,7 @@
       border-radius: 0 0 0.3rem 0.3rem;
       max-height: 100vh;
       background: white;
-      font-size: 0.65rem;
+      font-size: 0.7rem;
       line-height: 1.4rem;
       position: relative;
     }

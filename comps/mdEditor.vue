@@ -242,7 +242,9 @@ export default {
     margin-bottom: 10px;
     .tab{
       height: 100%;
-      align-self: stretch;
+      flex-shrink: 0;
+      align-items: start;
+      width: 22px;
       span{
         cursor: pointer;
         text-align: center;
