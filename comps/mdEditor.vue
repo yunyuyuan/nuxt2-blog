@@ -244,6 +244,7 @@ export default {
       height: 100%;
       flex-shrink: 0;
       align-items: start;
+      align-self: stretch;
       width: 22px;
       span{
         cursor: pointer;
