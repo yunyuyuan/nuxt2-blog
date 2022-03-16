@@ -1,6 +1,13 @@
 @use "sass:math";
 @import "assets/style/var";
 
+@mixin withThemeDark(){
+  @at-root body[code-theme=dark]{
+    @content
+  }
+}
+
+
 .--markdown{
   $line-height: 1.8rem;
   width: 100%;
@@ -83,7 +90,7 @@
         &:after {
           width: calc(100% + 12px);
         }
-        >.icon-svg {
+        >.open-link >svg {
           display: block;
         }
       }
@@ -94,7 +101,7 @@
         background: #1ac1e7;
       }
     }
-    >.icon-svg {
+    >.open-link >svg {
       display: none;
       position: absolute;
       top: 4px;
@@ -201,29 +208,61 @@
       font-size: 0.85em;
     }
   }
+  @include withThemeDark{
+    pre {
+      background: #383d49;
+      > code.hljs{
+        border-color: #444;
+      }
+      > span{
+        > span{
+          background: #383d49;
+          &:hover {
+            background: #6b758c;
+            svg {
+              fill: #ffffff;
+            }
+          }
+          svg{
+            fill: #efefef;
+          }
+        }
+      }
+    }
+  }
   pre{
     margin: 1.3rem 0;
-    border-radius: 0.3rem;
-    background: white;
+    border-radius: 8px;
     border: 1px solid #dadada;
     box-shadow: 0 0 8px rgb(0 0 0 / 20%);
     position: relative;
+    background: #f3f3f3;
     > span{
-      font-family: "Source Code Pro", serif;
       position: absolute;
-      right: 8px;
-      top: 8px;
-      display: block;
-      font-size: 12px;
-      line-height: 20px;
-      padding: 2px 6px;
-      border-radius: 4px;
-      background: #ffe3a5;
-      cursor: pointer;
-      transition: $common-transition;
-      border: 1px solid transparent;
-      &:hover {
-        border-color: #ff6c00;
+      right: 4px;
+      top: 4px;
+      display: flex;
+      > span{
+        cursor: pointer;
+        width: 15px;
+        height: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 4px;
+        transition: $common-transition;
+        border-radius: 4px;
+        &:hover {
+          background: #fff;
+          svg {
+            fill: black;
+          }
+        }
+        svg{
+          width: 100%;
+          height: 100%;
+          fill: #2c2c2c;
+        }
       }
     }
     > div{
@@ -260,13 +299,17 @@
     > code.hljs{
       display: block;
       word-break: keep-all;
-      padding: 0 0.8rem 0.5rem 0.8rem;
+      padding: .5rem 0.8rem;
+      border-top: 1px solid #e4e4e4;
       border-radius: 0 0 0.3rem 0.3rem;
-      background: transparent;
       max-height: 100vh;
+      background: white;
       font-size: 0.65rem;
       line-height: 1.4rem;
       position: relative;
+    }
+    &.theme-dark {
+      background: #282c34;
     }
   }
   fieldset{
@@ -323,3 +366,4 @@
     }
   }
 }
+@import "code-style";

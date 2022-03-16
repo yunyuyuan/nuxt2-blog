@@ -22,7 +22,6 @@
 
 <script>
 import '~/assets/style/markdown.scss';
-import 'highlight.js/styles/github.css';
 import 'perfect-scrollbar/css/perfect-scrollbar.css';
 import {articleList} from "~/utils/data";
 import {cloneDeep} from "lodash/lang";

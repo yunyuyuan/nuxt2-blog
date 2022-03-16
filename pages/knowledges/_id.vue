@@ -37,7 +37,6 @@
 
 <script>
 import '~/assets/style/markdown.scss';
-import 'highlight.js/styles/github.css';
 import {knowledgeList} from "~/utils/data";
 import {cloneDeep} from "lodash/lang";
 import bookDivide from '~/assets/image/book-divide.png';

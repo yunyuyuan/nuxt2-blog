@@ -153,7 +153,7 @@ export default {
     padding: 2px 5px;
     word-break: keep-all;
     cursor: pointer;
-    font:{
+    font: {
       size: 20px;
       family: "Source Code Pro", serif;
     }

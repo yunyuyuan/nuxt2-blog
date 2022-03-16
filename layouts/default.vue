@@ -50,6 +50,8 @@ export default {
   async mounted() {
     if (inBrowser) {
       initScrollTrigger();
+      // init code theme
+      document.body.setAttribute('code-theme', localStorage.getItem('code-theme') || 'light');
       if (await isAuthor()) {
         this.isAuthor = true;
       }

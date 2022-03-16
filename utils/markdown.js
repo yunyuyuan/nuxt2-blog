@@ -104,7 +104,9 @@ export function afterInsertHtml(mdEl, forEdit = false) {
     if (!forEdit) {
       // code scrollbar
       mdEl.querySelectorAll('pre>code').forEach(el => {
-        new PerfectScrollbar(el);
+        if (!el.classList.contains('ps')) {
+          new PerfectScrollbar(el);
+        }
       })
       // lazy-img
       mdEl.querySelectorAll('.image-container img').forEach(el => {
@@ -122,12 +124,27 @@ export function afterInsertHtml(mdEl, forEdit = false) {
       })
       // copy <pre>
       mdEl.querySelectorAll('pre').forEach(el => {
-        const btn = document.createElement('span');
-        btn.innerText = 'copy';
-        el.insertBefore(btn, el.children[0]);
-        new ClipboardJS(btn, {
+        const actions = document.createElement('span');
+        el.insertBefore(actions, el.children[0]);
+        const themeBtn = createSvgIcon('code-theme', span => {
+          span.classList.add('code-theme');
+          actions.appendChild(span);
+        })
+        themeBtn.title = 'theme';
+        themeBtn.onclick = () => {
+          const body = document.body;
+          const theme = body.getAttribute('code-theme') === 'light' ? 'dark' : 'light';
+          body.setAttribute('code-theme', theme);
+          localStorage.setItem('code-theme', theme);
+        }
+        const copyBtn = createSvgIcon('copy', span => {
+          span.classList.add('copy');
+          actions.appendChild(span);
+        })
+        copyBtn.title = 'copy';
+        new ClipboardJS(copyBtn, {
           target: function(trigger) {
-            return trigger.parentElement.querySelector('code');
+            return trigger.parentElement.parentElement.querySelector('code');
           },
         }).on('success', e => {
           e.clearSelection();
@@ -139,16 +156,25 @@ export function afterInsertHtml(mdEl, forEdit = false) {
       })
       // target=_blank
       mdEl.querySelectorAll('a[target=_blank]').forEach(el => {
-        const svg = document.createElement('i');
-        svg.classList.add('open-link');
-        el.appendChild(svg);
-        new SvgIconComp({
-          propsData: {
-            name: 'open-link',
-          }
-        }).$mount(svg);
+        createSvgIcon('open-link', span => {
+          span.classList.add('open-link');
+          el.appendChild(span);
+        })
       })
     }
   } catch {
   }
+}
+
+function createSvgIcon(name, process) {
+  const span = document.createElement('span');
+  const svg = document.createElement('i');
+  span.appendChild(svg);
+  process(span);
+  new SvgIconComp({
+    propsData: {
+      name,
+    }
+  }).$mount(svg);
+  return span;
 }
