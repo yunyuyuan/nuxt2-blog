@@ -198,7 +198,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import "assets/style/var";
 .md-editor{
   width: 88vw;

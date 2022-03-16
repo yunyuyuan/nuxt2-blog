@@ -1,5 +1,5 @@
 <template>
-  <button :disabled="disabled" :class="[size, theme]" class="flex" @click="$emit('click', $event)">
+  <button class="common-button flex" :disabled="disabled" :class="[size, theme]" @click="$emit('click', $event)">
     <svg-icon v-if="icon||loading" :name="loading?'loading':icon"/>
     <span><slot/></span>
   </button>
@@ -24,10 +24,10 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 @import "assets/style/var";
 
-button {
+button.common-button {
   padding: 0 10px;
   height: 30px;
   border-radius: 3px;

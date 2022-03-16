@@ -35,7 +35,7 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 @import "assets/style/var";
 .record-detail{
   margin: 30px 20px 80px 20px;

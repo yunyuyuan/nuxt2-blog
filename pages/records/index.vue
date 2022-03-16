@@ -54,7 +54,7 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 @import "assets/style/var";
 .record-list{
   margin: 20px 30px 20px 40px;

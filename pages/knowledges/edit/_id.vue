@@ -1,5 +1,5 @@
 <template>
-  <div class="editor flexc">
+  <div class="knowledges-editor flexc">
     <edit-header :is-new="id==='new'" :draft-id="draftId" :acting="updating" :can-delete="!!item" @loadDraft="loadDraft" @saveDraft="saveDraft" @update="updateKnowledge" @delete="deleteKnowledge"/>
     <div class="body">
       <div class="edit flexc">
@@ -157,10 +157,10 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 @import "assets/style/var";
 
-.editor {
+.knowledges-editor {
   max-width: 800px;
   padding: 0 20px;
   margin: auto;
@@ -206,7 +206,7 @@ export default {
   }
 }
 @include mobile{
-  .editor{
+  .knowledges-editor{
     width: calc(100% - 20px);
     padding: 0 10px;
     >.body{

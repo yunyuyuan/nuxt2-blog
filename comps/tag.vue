@@ -1,6 +1,6 @@
 <template>
-  <span v-if="!href" class="tag" :class="{active,}" @click="$emit('click', $event)"><slot/></span>
-  <NuxtLink v-else class="tag" :to="href"><slot/></NuxtLink>
+  <span v-if="!href" class="common-tag" :class="{active,}" @click="$emit('click', $event)"><slot/></span>
+  <NuxtLink v-else class="common-tag" :to="href"><slot/></NuxtLink>
 </template>
 
 <script>
@@ -13,12 +13,12 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @use "sass:math";
 
 $size: 1.6rem;
 $color: #eaeaea;
-.tag {
+.common-tag {
   background: $color;
   border-radius: 4px 0 0 4px;
   color: #626262;

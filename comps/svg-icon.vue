@@ -1,5 +1,5 @@
 <template>
-  <svg class="icon-svg" aria-hidden="true">
+  <svg class="icon-svg common-svg" aria-hidden="true">
     <use :href="icon"></use>
   </svg>
 </template>
@@ -31,8 +31,8 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
-svg {
+<style lang="scss">
+svg.common-svg {
   display: inline-flex;
   align-items: center;
   justify-content: center;
