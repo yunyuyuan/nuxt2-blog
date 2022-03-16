@@ -134,19 +134,19 @@ export default {
     position: relative;
     max-width: 1050px;
     min-width: $min-article-size + $menu-size + $menu-margin;
-    >h2 {
-      margin: 30px 0 40px 0;
-      text-align: center;
-      color: #1d1d1d;
-      word-break: break-word;
-      letter-spacing: .5px;
-      font-family: $font-title;
-    }
     >.article-container{
       position: relative;
       width: 880px;
       min-width: $min-article-size;
       margin: 0 $menu-size + $menu-margin 0 20px;
+      >h2 {
+        margin: 30px 0 40px 0;
+        text-align: center;
+        color: #1d1d1d;
+        word-break: break-word;
+        letter-spacing: .5px;
+        font-family: $font-title;
+      }
       article{
         position: relative;
         z-index: 2;
