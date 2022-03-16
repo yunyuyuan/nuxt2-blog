@@ -24,7 +24,7 @@ that matter to them, and to express themselves creatively.</p></fieldset>
 <li><p>写入内存卡后可以看到有一个分区叫 <code>boot</code>，进入该目录，创建两个空文件：<code>ssh</code> 和 <code>wpa_supplicant.conf</code>，注意 <code>ssh</code> 文件没有后缀。
 <span class="image-container"><img data-viewer="" alt="创建文件" title="创建文件" style="width: 24rem !important;" src="https://z3.ax1x.com/2021/02/20/y5E68s.png"><small class="desc">创建文件</small></span></p></li>
 <li><p><code>wpa_supplicant.conf</code> 写入下面内容，修改 wifi 信息，然后保存。</p>
-<pre><div></div><code class="properties language-properties hljs ps ps--active-x"><span class="hljs-attr">country</span>=<span class="hljs-string">CN </span>
+<pre><small>.properties</small><div></div><code class="properties language-properties hljs"><span class="hljs-attr">country</span>=<span class="hljs-string">CN </span>
 <span class="hljs-attr">ctrl_interface</span>=<span class="hljs-string">DIR=/var/run/wpa_supplicant </span>
 <span class="hljs-attr">GROUP</span>=<span class="hljs-string">netdev </span>
 <span class="hljs-attr">update_config</span>=<span class="hljs-string">1</span>
@@ -35,7 +35,7 @@ that matter to them, and to express themselves creatively.</p></fieldset>
     <span class="hljs-attr">psk</span>=<span class="hljs-string">"你的wifi密码"</span>
     <span class="hljs-attr">key_mgmt</span>=<span class="hljs-string">WPA-PSK</span>
 <span class="hljs-attr">}</span>
-<div class="ps__rail-x" style="left: 0px; bottom: 0px; width: 769px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 768px;"></div></div><div class="ps__rail-y" style="top: 0px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div></div></code></pre>
+</code></pre>
 <p><span class="image-container"><img data-viewer="" alt="写入wifi配置" title="写入wifi配置" style="width: 20rem !important;" src="https://z3.ax1x.com/2021/02/20/y5Er5Q.png"><small class="desc">写入 wifi 配置</small></span></p></li>
 <li><p>取出 sd 卡，插入树莓派的 sd 卡插口，接上电源线。树莓派此时会自动读取 <code>/boot</code> 的内容并启动系统，开启 ssh 服务，以及连接给定的 wifi。</p></li>
 <li><p>windows 下使用 <a target="_blank" href="https://www.advanced-ip-scanner.com/">advanced-ip-scanner</a> 扫描局域网内的设备，手机端可以使用 <strong>Fing</strong>，我使用的 Linux，直接键入 <code>arp -a</code> 便可以查看设备列表。 找到名字中带 <code>raspberry</code> 的设备，用 ssh 连接，默认用户名是 <code>pi</code>，密码是 <code>raspberry</code>。

@@ -5,13 +5,13 @@
 <h3><sup class="fake-head" id="id-%E7%AE%80%E4%BB%8B"></sup><a class="header-link" href="#id-%E7%AE%80%E4%BB%8B"><p>简介</p></a></h3>
 <p>  不用第三方 i18n 是因为我觉得 i18n 应该是一个很简单的，自己实现的功能<img src="/sticker/aru/58.png?ran=1638287411739" alt="sticker"></p>
 <p>  <span style="color: red">目标：更改语言后，所有的 <code>$i18n()</code> 均要同步更改</span></p>
-<pre><div></div><code class="html language-html hljs language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
+<pre><small>HTML, XML</small><div></div><code class="html language-html hljs language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>{{ $i18n('articles') }}<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
 </code></pre>
 <hr>
 <p>这个博客项目的 <a target="_blank" href="https://github.com/yunyuyuan/cloudflare-blog/blob/master/plugins/i18n.js">i18n</a> 都是我自己写的，因为基于 vue2，就简单地在 <code>Vue.prototype</code> 上加一个函数就行了:</p>
-<pre><div></div><code class="js language-js hljs language-javascript"><span class="hljs-keyword">const</span> i18n = [
+<pre><small>Javascript</small><div></div><code class="js language-js hljs language-javascript"><span class="hljs-keyword">const</span> i18n = [
   {
     <span class="hljs-attr">name</span>: <span class="hljs-string">'中文'</span>,
     <span class="hljs-attr">default</span>: <span class="hljs-literal">true</span>,
@@ -35,7 +35,7 @@
 <h3><sup class="fake-head" id="id-vue3%E5%AE%9E%E7%8E%B0"></sup><a class="header-link" href="#id-vue3%E5%AE%9E%E7%8E%B0"><p>vue3 实现</p></a></h3>
 <p>  在 vue3 中，其实已经不需要用 <code>vuex</code> 了，vue3 提供的 <code>ref</code>，<code>reactive</code>，<code>computed</code> 和 <code>provide</code>，<code>inject</code> 已经够用了，而且很轻量。
   于是乎，我就想着能不能把之前项目的 i18n 转到 vue3 上来。简单写了下，确实实现了，但不知性能如何，下面贴代码和注释:</p>
-<pre><div></div><code class="ts language-ts hljs language-typescript"><span class="hljs-comment">/**
+<pre><small>Typescript</small><div></div><code class="ts language-ts hljs language-typescript"><span class="hljs-comment">/**
  * main.ts
  */</span>
 <span class="hljs-keyword">import</span> { createApp, ref } <span class="hljs-keyword">from</span> <span class="hljs-string">'vue'</span>;
@@ -46,7 +46,7 @@
 app.<span class="hljs-property">config</span>.<span class="hljs-property">globalProperties</span>.<span class="hljs-property">$lang</span> = <span class="hljs-title function_">ref</span>(<span class="hljs-variable language_">localStorage</span>.<span class="hljs-title function_">getItem</span>(<span class="hljs-string">"lang"</span>)||defaultLang)
 <span class="hljs-comment">// ... ...</span>
 </code></pre>
-<pre><div></div><code class="ts language-ts hljs language-typescript"><span class="hljs-comment">/**
+<pre><small>Typescript</small><div></div><code class="ts language-ts hljs language-typescript"><span class="hljs-comment">/**
  * i18n.ts
  * 这个挺简单的，就是单纯i18n的实现
  */</span>
@@ -81,7 +81,7 @@ app.<span class="hljs-property">config</span>.<span class="hljs-property">global
 }
 </code></pre>
 <p>  由于 i18n 基本所有地方都会用到，所以我干脆把它放到 mixin 里了。这样的话，所有 vue 组件都会有一个 <code>$i18n</code> 方法，而且这个方法返回的是一个 <code>computed(xxx).value</code>，所以它会自动更新。</p>
-<pre><div></div><code class="ts language-ts hljs language-typescript"><span class="hljs-comment">/**
+<pre><small>Typescript</small><div></div><code class="ts language-ts hljs language-typescript"><span class="hljs-comment">/**
  * i18n-mixin.ts
  */</span>
 <span class="hljs-keyword">import</span> i18n <span class="hljs-keyword">from</span> <span class="hljs-string">'../i18n'</span>

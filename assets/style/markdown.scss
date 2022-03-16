@@ -228,6 +228,9 @@
           }
         }
       }
+      > small {
+        color: #939393;
+      }
     }
   }
   pre{
@@ -239,8 +242,8 @@
     background: #f3f3f3;
     > span{
       position: absolute;
-      right: 4px;
-      top: 4px;
+      right: 6px;
+      top: 6px;
       display: flex;
       > span{
         cursor: pointer;
@@ -264,6 +267,16 @@
           fill: #2c2c2c;
         }
       }
+    }
+    > small {
+      position: absolute;
+      left: 50%;
+      font-family: "Source Code Pro", serif;
+      transform: translateX(-50%);
+      top: 6px;
+      font-size: .65rem;
+      color: #9c9c9c;
+      line-height: 20px;
     }
     > div{
       position: relative;

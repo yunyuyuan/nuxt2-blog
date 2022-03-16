@@ -5,7 +5,7 @@
 <ol>
 <li><p>首先就是如何在 js 里手动实例化一个<code>.vue</code> 单文件组件，找到了一个<a target="_blank" href="https://vuejs.org/v2/api/#Vue-extend">方法</a>，尝试可行。</p></li>
 <li><p>第二步，在 <code>v-html</code> 渲染后，手动替换图片为懒加载图片组件。只需在 <code>$nextTick</code> 加上：</p>
-<pre><div></div><code class="js language-js hljs language-javascript ps"><span class="hljs-keyword">import</span> <span class="hljs-title class_">LazyImg</span> <span class="hljs-keyword">from</span> <span class="hljs-string">"~/comps/lazy-img"</span>;
+<pre><small>Javascript</small><div></div><code class="js language-js hljs language-javascript"><span class="hljs-keyword">import</span> <span class="hljs-title class_">LazyImg</span> <span class="hljs-keyword">from</span> <span class="hljs-string">"~/comps/lazy-img"</span>;
 <span class="hljs-keyword">const</span> <span class="hljs-title class_">LazyImgComp</span> = <span class="hljs-title class_">Vue</span>.<span class="hljs-title function_">extend</span>(<span class="hljs-title class_">LazyImg</span>);
 
 <span class="hljs-variable language_">this</span>.<span class="hljs-property">$refs</span>.<span class="hljs-property">markdown</span>.<span class="hljs-title function_">querySelectorAll</span>(<span class="hljs-string">'.image-container img'</span>).<span class="hljs-title function_">forEach</span>(<span class="hljs-function"><span class="hljs-params">el</span> =&gt;</span> {
@@ -19,7 +19,7 @@
       }
     }).$mount(el);
 })
-<div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 0px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div></div></code></pre></li>
+</code></pre></li>
 </ol>
 <p>  对，没错，这一步就行了。但是有一个问题，项目之前懒加载监听的 scroll 事件，是从 layout 父级组件 provide 拿的。因为懒加载很多，若每一个都去 <code>addEventListener</code> 太不优雅；另外 scroll 还要被其他页面使用，例如文章详情的 menu；另外 scroll 做了节流。所以我把它放到了顶级元素里（这里也是一个骚操作，有兴趣可以扒扒源码<img src="/sticker/yellow-face/50.png?ran=1640786389885" alt="sticker">），这会导致一个问题：手动实例化的 <code>LazyImgComp</code>，拿不到这个 scroll <code>inject</code>！现在只有一种办法，把原本就不属于 vue 管的浏览器事件，脱离出去。</p>
 <h3><sup class="fake-head" id="id-%E7%9C%9F%E6%AD%A3%E7%9A%84%E9%97%AE%E9%A2%98"></sup><a class="header-link" href="#id-%E7%9C%9F%E6%AD%A3%E7%9A%84%E9%97%AE%E9%A2%98"><p>真正的问题</p></a></h3>
@@ -27,7 +27,7 @@
 <ol>
 <li><p>删掉之前的 scroll 烂代码。</p></li>
 <li><p>新建一个 <code>scroll-event.js</code> 文件，如下：</p>
-<pre><div></div><code class="js language-js hljs language-javascript ps"><span class="hljs-keyword">import</span> {inBrowser} <span class="hljs-keyword">from</span> <span class="hljs-string">"~/utils/utils"</span>;
+<pre><small>Javascript</small><div></div><code class="js language-js hljs language-javascript"><span class="hljs-keyword">import</span> {inBrowser} <span class="hljs-keyword">from</span> <span class="hljs-string">"~/utils/utils"</span>;
 <span class="hljs-keyword">import</span> throttle <span class="hljs-keyword">from</span> <span class="hljs-string">"lodash/throttle"</span>;
 
 <span class="hljs-keyword">let</span> scrollEvent = <span class="hljs-literal">null</span>;
@@ -52,7 +52,7 @@
     <span class="hljs-variable language_">window</span>.<span class="hljs-title function_">removeEventListener</span>(<span class="hljs-string">'scroll-event'</span>, callback);
   }
 }
-<div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 0px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div></div></code></pre></li>
+</code></pre></li>
 <li><p><code>initScrollTrigger</code> 只需要在 layout 顶级元素的 mount 里调用一次。然后 <code>addScrollListener</code> 作为节流过的 scroll 事件，就可以随便用了。实测可行。</p></li>
 </ol>
 <p><strong>冬天手冻僵了，人也懒，文章写得太简单，以后空闲想写了再完善吧。。。</strong></p>

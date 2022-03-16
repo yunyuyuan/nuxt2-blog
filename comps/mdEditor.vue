@@ -107,7 +107,12 @@ export default {
         const dom = new DOMParser().parseFromString(parseMarkdown(this.text), 'text/html');
         // hljs
         dom.querySelectorAll('pre>code').forEach(el => {
-          el.parentElement.insertBefore(document.createElement('div'), el);
+          const dotes = document.createElement('div');
+          const lang = document.createElement('small');
+          const language = el.className.replace(/^.*?language-([^ ]+).*?$/, '$1');
+          lang.innerText = (hljs.getLanguage(language) || {name: language}).name;
+          el.parentElement.insertBefore(dotes, el);
+          el.parentElement.insertBefore(lang, dotes);
           hljs.highlightBlock(el);
         })
         // menu

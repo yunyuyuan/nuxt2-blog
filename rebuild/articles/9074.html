@@ -9,7 +9,7 @@
 </ul>
 <h3><sup class="fake-head" id="id-%E4%BB%A3%E7%A0%81"></sup><a class="header-link" href="#id-%E4%BB%A3%E7%A0%81"><p>代码</p></a></h3>
 <p><code>vite.config.ts</code>中这样写:</p>
-<pre><div></div><code class="ts language-ts hljs language-typescript"><span class="hljs-keyword">import</span> {defineConfig, <span class="hljs-title class_">Plugin</span>} <span class="hljs-keyword">from</span> <span class="hljs-string">'vite'</span>
+<pre><small>Typescript</small><div></div><code class="ts language-ts hljs language-typescript"><span class="hljs-keyword">import</span> {defineConfig, <span class="hljs-title class_">Plugin</span>} <span class="hljs-keyword">from</span> <span class="hljs-string">'vite'</span>
 <span class="hljs-keyword">import</span> vue <span class="hljs-keyword">from</span> <span class="hljs-string">'@vitejs/plugin-vue'</span>
 <span class="hljs-keyword">import</span> fs <span class="hljs-keyword">from</span> <span class="hljs-string">"fs"</span>;
 <span class="hljs-keyword">import</span> {dataToEsm} <span class="hljs-keyword">from</span> <span class="hljs-string">"rollup-pluginutils"</span>;
@@ -31,7 +31,7 @@
 })
 </code></pre>
 <p><code>IconSvg.vue</code>文件:</p>
-<pre><div></div><code class="ts language-ts hljs language-typescript">&lt;template&gt;
+<pre><small>Typescript</small><div></div><code class="ts language-ts hljs language-typescript">&lt;template&gt;
   <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">svg</span> <span class="hljs-attr">aria-hidden</span>=<span class="hljs-string">"true"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">use</span> <span class="hljs-attr">:href</span>=<span class="hljs-string">"getName"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">use</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span></span>
@@ -98,14 +98,14 @@
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span>
 </code></pre>
 <p>在<code>main.ts</code>里只需要全局注册IconSvg组件就行了:</p>
-<pre><div></div><code class="ts language-ts hljs language-typescript"><span class="hljs-keyword">import</span> { createApp } <span class="hljs-keyword">from</span> <span class="hljs-string">'vue'</span>
+<pre><small>Typescript</small><div></div><code class="ts language-ts hljs language-typescript"><span class="hljs-keyword">import</span> { createApp } <span class="hljs-keyword">from</span> <span class="hljs-string">'vue'</span>
 <span class="hljs-keyword">import</span> <span class="hljs-title class_">App</span> <span class="hljs-keyword">from</span> <span class="hljs-string">'./App.vue'</span>
 <span class="hljs-keyword">import</span> <span class="hljs-title class_">IconSvg</span> <span class="hljs-keyword">from</span> <span class="hljs-string">"./assets/svg/IconSvg.vue"</span>;
 
 <span class="hljs-title function_">createApp</span>(<span class="hljs-title class_">App</span>).<span class="hljs-title function_">component</span>(<span class="hljs-string">'svg-icon'</span>, <span class="hljs-title class_">IconSvg</span>).<span class="hljs-title function_">mount</span>(<span class="hljs-string">'#app'</span>)
 </code></pre>
 <p>这样使用:</p>
-<pre><div></div><code class="html language-html hljs language-xml"><span class="hljs-comment">&lt;!-- 对应home.svg --&gt;</span>
+<pre><small>HTML, XML</small><div></div><code class="html language-html hljs language-xml"><span class="hljs-comment">&lt;!-- 对应home.svg --&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">svg-icon</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"home"</span>/&gt;</span>
 </code></pre>
 <h3><sup class="fake-head" id="id-%E5%B0%8F%E7%BB%93"></sup><a class="header-link" href="#id-%E5%B0%8F%E7%BB%93"><p>小结</p></a></h3>
