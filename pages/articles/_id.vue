@@ -134,7 +134,7 @@ export default {
     position: relative;
     max-width: 1050px;
     min-width: $min-article-size + $menu-size + $menu-margin;
-    h2 {
+    >h2 {
       margin: 30px 0 40px 0;
       text-align: center;
       color: #1d1d1d;
@@ -142,7 +142,7 @@ export default {
       letter-spacing: .5px;
       font-family: $font-title;
     }
-    .article-container{
+    >.article-container{
       position: relative;
       width: 880px;
       min-width: $min-article-size;
@@ -154,14 +154,14 @@ export default {
     }
     &.no-menu {
       width: $min-article-size + $menu-size + $menu-margin;
-      .article-container {
+      >.article-container {
         margin: 0 auto;
       }
       ~ .more-info {
         margin-right: 20px;
       }
     }
-    .menu{
+    >.menu{
       position: absolute;
       top: 0;
       right: 0;
@@ -281,13 +281,13 @@ export default {
       width: 100vw !important;
       max-width: unset;
       min-width: unset;
-      .article-container {
+      >.article-container {
         width: calc(100% - 120px);
         max-width: unset;
         min-width: unset;
         margin: 0 60px;
       }
-      .menu {
+      >.menu {
         display: none;
         ul{
           display: none;
@@ -313,13 +313,13 @@ export default {
       width: 100% !important;
       max-width: unset;
       min-width: unset;
-      .article-container {
+      >.article-container {
         width: calc(100% - 20px);
         max-width: unset;
         min-width: unset;
         margin: 0 10px;
       }
-      .menu {
+      >.menu {
         display: none;
         ul{
           display: none;

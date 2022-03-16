@@ -83,7 +83,7 @@ export default {
     margin: auto;
     position: relative;
     width: 900px;
-    .info {
+    >.info {
       margin: 40px 0 20px 0;
       padding-bottom: 20px;
       position: relative;
@@ -133,7 +133,7 @@ export default {
         }
       }
     }
-    .divider {
+    >.divider {
       width: 100%;
       height: 0;
       overflow: visible;
@@ -299,10 +299,10 @@ export default {
         }
       }
     }
-    article {
+    >article {
       width: 800px;
     }
-    .modify {
+    >.modify {
       font-size: 12px;
       margin-left: auto;
       margin-top: 40px;
@@ -318,7 +318,7 @@ export default {
       width: calc(100% - 20px) !important;
       max-width: unset;
       min-width: unset;
-      .info {
+      >.info {
         flex-direction: column;
         .--lazy-img{
           margin-bottom: 30px;
@@ -342,7 +342,7 @@ export default {
           }
         }
       }
-      article {
+      >article {
         width: 100%;
       }
     }
