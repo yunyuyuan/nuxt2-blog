@@ -25,7 +25,7 @@
     </div>
     <div v-show="showTip==='sticker'&&editing" class="flex stickers" :style="{height: stickerHeight+'px'}">
       <div class="tab flexc">
-        <span v-for="k in stickerKeys" @click="stickerNow=k" :key="k" :style="{height: 100/stickerKeys.length+'%'}"
+        <span v-for="k in stickerKeys" @click="stickerNow=k" :key="k" :style="{height: stickerHeight/stickerKeys.length+'px'}"
               :class="{active: k===stickerNow}">{{ stickers[k].name }}</span>
       </div>
       <div class="contain">
