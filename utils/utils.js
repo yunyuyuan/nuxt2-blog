@@ -35,7 +35,11 @@ export const markdownTips = [
   },
   {
     regx: '[youtube][描述](https://)[/youtube]',
-    description: 'youtube/bilibili视频'
+    description: 'youtube视频'
+  },
+  {
+    regx: '[bili][描述](https://)[/bili]',
+    description: 'bilibili视频'
   },
   {
     regx: '--标题--\n内容\n-- --',

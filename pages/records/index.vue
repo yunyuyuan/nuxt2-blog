@@ -57,7 +57,8 @@ export default {
 <style lang="scss">
 @import "assets/style/var";
 .record-list{
-  margin: 20px 30px 20px 40px;
+  margin: 20px 30px 0 40px;
+  padding-bottom: 60px;
   ul{
     margin: auto;
     li{

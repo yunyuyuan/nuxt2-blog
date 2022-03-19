@@ -6,7 +6,7 @@
         <b v-if="isAuthor" style="font-size: 13px;">加密:</b>
         <input v-if="isAuthor" v-model="doEncrypt" type="checkbox" title="加密"/>
       </template>
-      <span @click="splited = !splited" style="margin-left: auto;" title="分离">
+      <span @click="splited = !splited" style="margin-left: auto;" title="切换视图">
         <svg-icon name="split"/>
       </span>
       <span @click="showTip=(showTip==='sticker')?false:'sticker'" title="表情"><img src="/sticker/yellow-face/18.png"

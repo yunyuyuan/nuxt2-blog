@@ -51,6 +51,7 @@ export default {
 
 .knowledge-list{
   width: 800px;
+  padding-bottom: 60px;
   nav{
     width: 100%;
     border-bottom: 1px solid #b4b4b4;
