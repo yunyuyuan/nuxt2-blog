@@ -21,13 +21,13 @@ export default {
     link: [
       {rel: 'shortcut icon', href: '/favicon.jpg'},
     ],
-    script: [
-      {
+    script: [...(config.CloudflareAnalyze ?
+      [{
         src: 'https://static.cloudflareinsights.com/beacon.min.js',
         async: false,
         defer: true,
         'data-cf-beacon': `{"token": "${config.CloudflareAnalyze}"}`
-      }
+      }] : [])
     ],
     title: config.title
   },

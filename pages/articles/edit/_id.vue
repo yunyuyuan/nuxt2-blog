@@ -4,7 +4,7 @@
     <div class="body">
       <div class="edit flexc">
         <input class="title" v-model="title" placeholder="标题"/>
-        <input class="tags" v-model="tags" placeholder="标签"/>
+        <input class="tags" v-model="tags" placeholder="标签，英文逗号分隔"/>
         <md-editor
           ref="mdEditor"
           :editing.sync="editing"

@@ -6,7 +6,10 @@
         <b v-if="isAuthor" style="font-size: 13px;">加密:</b>
         <input v-if="isAuthor" v-model="doEncrypt" type="checkbox" title="加密"/>
       </template>
-      <span @click="showTip=(showTip==='sticker')?false:'sticker'" style="margin-left: auto;" title="表情"><img src="/sticker/yellow-face/18.png"
+      <span @click="splited = !splited" style="margin-left: auto;" title="分离">
+        <svg-icon name="split"/>
+      </span>
+      <span @click="showTip=(showTip==='sticker')?false:'sticker'" title="表情"><img src="/sticker/yellow-face/18.png"
                                                                                    alt="sticker"/></span>
       <span @click="showTip=(showTip==='markdown')?false:'markdown'" title="markdown语法"><svg-icon
         name="markdown"/></span>
@@ -35,8 +38,10 @@
         </div>
       </div>
     </div>
-    <textarea ref="input" v-show="editing" class="text" v-model="text" placeholder="内容"></textarea>
-    <article v-show="!editing" v-viewer ref="markdown" class="--markdown" v-html="parsedMd"/>
+    <div ref="editorContainer" class="editor-container" :class="{split: splited}">
+      <textarea @scroll="setScroll" ref="input" v-show="splited || editing" class="text" v-model="text" placeholder="内容"></textarea>
+      <article @scroll="setScroll" v-show="splited || !editing" v-viewer ref="markdown" class="--markdown" v-html="parsedMd"/>
+    </div>
   </div>
 </template>
 
@@ -92,6 +97,8 @@ export default {
       doEncrypt: this.$props.encrypted,
       stickerKeys,
       stickerNow: stickerKeys[0],
+      splited: false,
+      scrollDirty: false
     }
   },
   computed: {
@@ -160,6 +167,21 @@ export default {
   },
   inject: ['encryptor_', 'isAuthor_'],
   methods: {
+    setScroll(e) {
+      if (this.splited && !this.scrollDirty) {
+        this.scrollDirty = true;
+        const currentEl = e.target;
+        let anotherEl = this.$refs.input;
+        if (currentEl === this.$refs.input) {
+          anotherEl = this.$refs.markdown;
+        }
+        let percentage = currentEl.scrollTop / (currentEl.scrollHeight - currentEl.getBoundingClientRect().height);
+        percentage = percentage <= 1 ? percentage : 1;
+        anotherEl.scrollTop = percentage * (anotherEl.scrollHeight - anotherEl.getBoundingClientRect().height);
+      } else {
+        this.scrollDirty = false;
+      }
+    },
     insertSticker(alt) {
       this.text = insertAtCursor(`![sticker](${alt})`, this.$refs.input);
     },
@@ -202,7 +224,7 @@ export default {
 @import "assets/style/var";
 .md-editor{
   width: 88vw;
-  margin: 20px 0;
+  margin: 20px 0 100px 0;
   > .action{
     align-self: stretch;
     margin-bottom: 5px;
@@ -228,7 +250,7 @@ export default {
       transition: $common-transition;
       border-radius: 3px;
       &:hover{
-        background: #e0e0e0;
+        background: #d9d9d9;
       }
       img, svg{
         width: 100%;
@@ -237,13 +259,13 @@ export default {
       }
     }
   }
-  .stickers{
+  > .stickers{
     border: 1px solid gray;
     margin-bottom: 10px;
     .tab{
       height: 100%;
       flex-shrink: 0;
-      align-items: start;
+      align-items: stretch;
       align-self: stretch;
       width: 22px;
       span{
@@ -290,7 +312,7 @@ export default {
       }
     }
   }
-  .markdown-tips{
+  > .markdown-tips{
     width: 100%;
     margin-bottom: 20px;
     ul{
@@ -308,12 +330,34 @@ export default {
       }
     }
   }
-  textarea{
-    font-size: 15px;
-    padding: 5px;
+  > .editor-container{
     align-self: stretch;
-    height: 80vh;
-    resize: vertical;
+    &.split {
+      height: unset;
+      display: flex;
+      justify-content: space-between;
+      > article {
+        width: calc(50% - 15px);
+        height: 80vh;
+        overflow: auto;
+        border: 1px solid gray;
+        border-radius: 5px;
+      }
+      > textarea{
+        width: calc(50% - 15px);
+      }
+    }
+    > article {
+      width: calc(100% - 10px);
+      padding: 5px;
+    }
+    > textarea{
+      width: calc(100% - 10px);
+      height: 80vh;
+      font-size: 15px;
+      padding: 5px;
+      resize: none;
+    }
   }
 }
 @include mobile{
