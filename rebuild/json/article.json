@@ -302,34 +302,6 @@
         ]
     },
     {
-        "title": "批量重命名工具",
-        "id": 9732,
-        "time": 1611155951873,
-        "modifyTime": 1613840124162,
-        "len": 545,
-        "encrypt": false,
-        "menu": [
-            {
-                "size": "big",
-                "text": "闲话",
-                "url": "#id-%E9%97%B2%E8%AF%9D"
-            },
-            {
-                "size": "big",
-                "text": "写代码",
-                "url": "#id-%E5%86%99%E4%BB%A3%E7%A0%81"
-            },
-            {
-                "size": "big",
-                "text": "使用",
-                "url": "#id-%E4%BD%BF%E7%94%A8"
-            }
-        ],
-        "tags": [
-            "python"
-        ]
-    },
-    {
         "title": "关于此站建设",
         "id": 4307,
         "time": 1602169460667,
