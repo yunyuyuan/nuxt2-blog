@@ -38,34 +38,6 @@
         ]
     },
     {
-        "title": "联想Yoga 14s安装Manjaro",
-        "id": 5305,
-        "time": 1640486581721,
-        "modifyTime": 1640707071736,
-        "len": 1262,
-        "encrypt": false,
-        "menu": [
-            {
-                "size": "big",
-                "text": "起因",
-                "url": "#id-%E8%B5%B7%E5%9B%A0"
-            },
-            {
-                "size": "big",
-                "text": "踩坑",
-                "url": "#id-%E8%B8%A9%E5%9D%91"
-            },
-            {
-                "size": "big",
-                "text": "小结",
-                "url": "#id-%E5%B0%8F%E7%BB%93"
-            }
-        ],
-        "tags": [
-            "linux"
-        ]
-    },
-    {
         "title": "U2FsdGVkX19bIiBn8xLjqXyQO1gNfmoDlZrVSUNv3JhrsBHOcRRvYq99GSEiiysO",
         "id": 2215,
         "time": 1638577146707,
