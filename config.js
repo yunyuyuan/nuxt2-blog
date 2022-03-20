@@ -1,6 +1,6 @@
 export default {
   title: 'yun yu yuan',
-  githubName: 'yunyuyuan',
+  githubName: 'kevon2019',
   githubRepo: 'nuxt2-blog',
   githubBranch: 'master',
   domain: 'https://blog.halberd.cn',
