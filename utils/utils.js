@@ -95,7 +95,7 @@ export function encrypt(text, pwd) {
     notify({
       title: e.name,
       type: 'error',
-      text: e.toString()
+      text: '加密失败'
     })
   }
 }
@@ -107,7 +107,7 @@ export function decrypt(text, pwd) {
     notify({
       title: e.name,
       type: 'error',
-      text: e.toString()
+      text: '解密失败'
     })
     return text;
   }

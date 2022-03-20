@@ -95,6 +95,7 @@ export default {
       menu: [],
       text: this.textInput,
       doEncrypt: this.$props.encrypted,
+      decrypted: false,
       stickerKeys,
       stickerNow: stickerKeys[0],
       splited: false,
@@ -193,7 +194,7 @@ export default {
         return notify({
           title: '警告',
           type: 'warn',
-          text: '选择加密时，密码不能为空！'
+          text: '解密时，密码不能为空'
         })
       }
       this.text = decrypt(this.text, this.encryptor);
@@ -203,8 +204,25 @@ export default {
         url: decrypt(m.url, this.encryptor),
       })) : [];
       this.$emit('decrypt');
+      this.decrypted = true;
     },
     getData() {
+      if (this.doEncrypt && !this.decrypted) {
+        notify({
+          title: '警告',
+          type: 'warn',
+          text: '必须先解密，才能进行后续操作'
+        })
+        throw 0;
+      }
+      if (this.doEncrypt && !this.encryptor) {
+        notify({
+          title: '警告',
+          type: 'warn',
+          text: '选择加密时，密码不能为空'
+        })
+        throw 0;
+      }
       return {
         doEncrypt: this.doEncrypt,
         text: this.encrypt(this.text),
