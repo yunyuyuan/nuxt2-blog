@@ -269,39 +269,6 @@
         ]
     },
     {
-        "title": "树莓派初次使用小记",
-        "id": 1147,
-        "time": 1613825966312,
-        "modifyTime": 1644534225448,
-        "len": 2440,
-        "encrypt": false,
-        "menu": [
-            {
-                "size": "small",
-                "text": "初次使用",
-                "url": "#id-%E5%88%9D%E6%AC%A1%E4%BD%BF%E7%94%A8"
-            },
-            {
-                "size": "small",
-                "text": "准备工具",
-                "url": "#id-%E5%87%86%E5%A4%87%E5%B7%A5%E5%85%B7"
-            },
-            {
-                "size": "small",
-                "text": "开始操作",
-                "url": "#id-%E5%BC%80%E5%A7%8B%E6%93%8D%E4%BD%9C"
-            },
-            {
-                "size": "small",
-                "text": "基础操作",
-                "url": "#id-%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C"
-            }
-        ],
-        "tags": [
-            "树莓派"
-        ]
-    },
-    {
         "title": "关于此站建设",
         "id": 4307,
         "time": 1602169460667,
