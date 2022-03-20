@@ -16,6 +16,7 @@ const knowledgeTypeList = [
   {key: 'book', name: '书籍'},
   {key: 'film', name: '影视'},
   {key: 'game', name: '游戏'},
+  {key: 'Note', name: 'IT笔记'},
 ]
 
 const token = {
