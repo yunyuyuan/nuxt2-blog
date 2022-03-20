@@ -127,34 +127,6 @@
         ]
     },
     {
-        "title": "如何简单地在vue3中实现i18n",
-        "id": 6445,
-        "time": 1619546979530,
-        "modifyTime": 1619605129424,
-        "len": 2133,
-        "encrypt": false,
-        "menu": [
-            {
-                "size": "big",
-                "text": "闲扯",
-                "url": "#id-%E9%97%B2%E6%89%AF"
-            },
-            {
-                "size": "big",
-                "text": "简介",
-                "url": "#id-%E7%AE%80%E4%BB%8B"
-            },
-            {
-                "size": "big",
-                "text": "vue3实现",
-                "url": "#id-vue3%E5%AE%9E%E7%8E%B0"
-            }
-        ],
-        "tags": [
-            "vue"
-        ]
-    },
-    {
         "title": "使用Nuxtjs+cloudflare page部署高可用的半静态博客",
         "id": 7832,
         "time": 1617817756615,
