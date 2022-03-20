@@ -42,6 +42,7 @@ export default {
     {src: '~/plugins/viewer'},
     {src: '~/plugins/global-comp'},
     {src: '~/plugins/stickers.server'},
+    {src: '~/plugins/logme.client'},
   ],
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
