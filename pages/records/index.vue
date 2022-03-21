@@ -59,6 +59,7 @@ export default {
 .record-list{
   margin: 20px 30px 0 40px;
   padding-bottom: 60px;
+  min-width: 800px;
   ul{
     margin: auto;
     li{
