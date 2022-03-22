@@ -36,6 +36,11 @@ export default {
     '~/assets/style/main.scss'
   ],
 
+  loading: {
+    color: '#00a5d7',
+    height: '2px'
+  },
+
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     {src: '~/plugins/filters'},
