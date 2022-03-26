@@ -4,9 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "nuxt --hostname 0.0.0.0",
-    "build": "NUXT_ENV_CURRENT_GIT_SHA=`git rev-parse --short HEAD` nuxt build",
+    "build": "cross-env NUXT_ENV_CURRENT_GIT_SHA=\"git rev-parse --short HEAD\" nuxt build",
     "start": "nuxt start --hostname 0.0.0.0",
-    "generate": "NUXT_ENV_CURRENT_GIT_SHA=`git rev-parse --short HEAD` nuxt generate"
+    "generate": "cross-env NUXT_ENV_CURRENT_GIT_SHA=\"git rev-parse --short HEAD\" nuxt generate"
   },
   "dependencies": {
     "axios": "^0.24.0",
@@ -20,6 +20,7 @@
   },
   "devDependencies": {
     "@nuxt/types": "^2.15.7",
+    "cross-env": "^7.0.3",
     "dayjs": "^1.10.7",
     "highlight.js": "^11.3.1",
     "lodash": "^4.17.21",
