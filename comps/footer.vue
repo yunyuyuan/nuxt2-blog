@@ -1,7 +1,7 @@
 <template>
   <footer id="footer" class="flex w100">
     <div class="middle flexc">
-      <span>Copyright (c) 2019-2022 <b><a target="_blank" :href="'https://github.com/'+user">云与原</a> | {{ hostName }}</b></span>
+      <span>Copyright (c) 2019-2022 <b><a target="_blank" :href="'https://github.com/'+user">{{ nick }}</a> | {{ hostName }}</b></span>
       <span class="flex"><a class="rss" target="_blank" href="/sitemap.xml" title="rss">RSS <svg-icon name="rss"/></a>| Powered By <a class="nuxt" href="https://nuxtjs.org/" target="_blank">Nuxtjs</a></span>
     </div>
   </footer>
@@ -16,6 +16,7 @@ export default {
   data() {
     return {
       user: config.githubName,
+      nick: config.nickName,
       hostName: inBrowser ? location.hostname : ''
     }
   }

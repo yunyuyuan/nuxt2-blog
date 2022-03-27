@@ -1,7 +1,7 @@
 import path from "path";
 import config from "./config";
 import * as fs from "fs";
-import dayjs from "./utils/_dayjs";
+import dayjs, {getNowDayjs} from "./utils/_dayjs";
 import { execSync } from "child_process";
 
 export default {
@@ -62,9 +62,10 @@ export default {
   modules: [],
   hooks: {
     generate: {
-      done(builder) {
+      done() {
         fs.writeFileSync(path.resolve(__dirname, './dist/sitemap.xml'),
           genRss(JSON.parse(fs.readFileSync(path.resolve(__dirname, './rebuild/json/article.json')).toString())));
+        fs.writeFileSync(path.resolve(__dirname, './dist/timestamp.txt'), getNowDayjs().format('YYYY-MM-DD HH:mm:ss'));
         console.log('√ sitemap.xml generated');
       }
     }
