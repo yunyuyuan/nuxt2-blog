@@ -2,6 +2,7 @@ import path from "path";
 import config from "./config";
 import * as fs from "fs";
 import dayjs from "./utils/_dayjs";
+import { execSync } from "child_process";
 
 export default {
   // Target: https://go.nuxtjs.dev/config-target
@@ -35,6 +36,10 @@ export default {
   css: [
     '~/assets/style/main.scss'
   ],
+
+  env: {
+    NUXT_ENV_CURRENT_GIT_SHA: execSync('git rev-parse --short HEAD').toString().trim()
+  },
 
   loading: {
     color: '#00a5d7',
