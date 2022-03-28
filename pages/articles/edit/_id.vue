@@ -13,7 +13,17 @@
     <div class="body">
       <div class="edit flexc">
         <input class="title" v-model="title" placeholder="标题" />
-        <input class="tags" v-model="tags" placeholder="标签，英文逗号分隔" />
+        <div class="tags" @click="$refs.inputTag.focus()">
+          <div class="flex s100">
+            <the-tag v-for="tag in inputTags">{{ tag }}</the-tag>
+          </div>
+          <input
+            ref="inputTag"
+            class="s100"
+            v-model="tags"
+            placeholder="标签，英文逗号分隔"
+          />
+        </div>
         <md-editor
           ref="mdEditor"
           :editing.sync="editing"
@@ -31,6 +41,7 @@
 
 <script>
 import EditHeader from "~/comps/edit-header";
+import TheTag from "~/comps/tag";
 import { encrypt, decrypt, notify, processJSON, randomId } from "~/utils/utils";
 import { createCommit } from "~/utils/github";
 import { articleList } from "~/utils/data";
@@ -41,7 +52,7 @@ import MdEditor from "~/comps/mdEditor";
 
 export default {
   name: "edit",
-  components: { MdEditor, MyButton, EditHeader },
+  components: { MdEditor, MyButton, EditHeader, TheTag },
   data() {
     return {
       updating: false,
@@ -73,6 +84,9 @@ export default {
   computed: {
     encryptor() {
       return this.encryptor_();
+    },
+    inputTags() {
+      return !this.tags ? [] : this.tags.split(",").filter(tag => !!tag);
     },
   },
   inject: ["encryptor_"],
@@ -123,7 +137,7 @@ export default {
               len: text.length,
               encrypt: doEncrypt,
               menu,
-              tags: !this.tags || doEncrypt ? [] : this.tags.split(","),
+              tags: doEncrypt ? [] : this.inputTags,
             };
             if (this.item) {
               Object.assign(
@@ -209,6 +223,39 @@ export default {
           border-radius: 0;
         }
       }
+      > .tags {
+        width: 60%;
+        height: 48px;
+        border: 1px solid gray;
+        border-radius: 4px;
+        position: relative;
+        div {
+          position: absolute;
+          left: 0;
+          top: 0;
+          z-index: 2;
+          overflow: auto;
+          >.common-tag {
+            margin-left: 8px;
+          }
+        }
+        input {
+          position: absolute;
+          left: 0;
+          top: 0;
+          opacity: 0;
+          z-index: 1;
+          border: none;
+          font-size: 15px;
+          &:focus {
+            opacity: 1;
+            z-index: 3;
+            ~ div {
+              display: none;
+            }
+          }
+        }
+      }
     }
   }
 }
@@ -218,7 +265,7 @@ export default {
     padding: 0 10px;
     > .body {
       > .edit {
-        > input {
+        > input, >.tags {
           width: 92%;
         }
       }
