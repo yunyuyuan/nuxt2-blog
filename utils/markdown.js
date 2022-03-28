@@ -111,14 +111,15 @@ export function afterInsertHtml(mdEl, forEdit = false) {
       // lazy-img
       mdEl.querySelectorAll('.image-container img').forEach(el => {
         const style = el.getAttribute('style');
+        const title = el.nextElementSibling.innerText;
         new LazyImgComp({
           propsData: {
             src: el.getAttribute('src'),
-            alt: el.title,
+            alt: title,
             viewer: true,
             compStyle: style,
             imgStyle: el.parentElement.classList.contains('just-height') ? style : '',
-            title: el.title,
+            title,
           }
         }).$mount(el);
       })
