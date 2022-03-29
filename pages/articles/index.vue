@@ -81,12 +81,13 @@ export default {
 
 <style lang="scss">
 @import "assets/style/var";
+$space: 16px;
 .article-list{
   width: 800px;
   margin: 0 auto 40px 0;
   align-items: flex-start;
   .head{
-    margin: 10px 20px;
+    margin: $space $space*2;
     align-self: stretch;
     .tags{
       flex-wrap: wrap;
@@ -112,11 +113,11 @@ export default {
       list-style: none;
       li{
         &:not(:last-of-type){
-          margin-bottom: 16px;
+          margin-bottom: $space * 1.6;
         }
         > a{
-          border-bottom: 1px solid #e1e1e1;
-          padding: 8px 0 12px 8px;
+          border-bottom: 1px solid #f3f3f3;
+          padding: $space*0.8 0 $space*1.4 $space*0.8;
         }
         &:hover{
           > a{
@@ -150,7 +151,7 @@ export default {
             letter-spacing: 0.2px;
           }
           .foot{
-            margin-top: 5px;
+            margin-top: $space / 1.5;
             font-size: 13px;
             color: $footer-color;
             transition: $common-transition;

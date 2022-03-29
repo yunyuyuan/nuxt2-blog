@@ -56,6 +56,7 @@ export default {
 
 <style lang="scss">
 @import "assets/style/var";
+$space: 16px;
 .record-list{
   margin: 20px 30px 0 40px;
   padding-bottom: 60px;
@@ -73,28 +74,28 @@ export default {
         }
       }
       .contain{
-        margin: 20px 0;
+        margin: $space*2 0;
         .item{
           position: relative;
           &:before{
             position: absolute;
             content: '';
-            width: calc(100% + 36px);
+            width: calc(100% + #{$space*3.6});
             height: 1px;
-            background: #bcbcbc;
+            background: #e9e9e9;
             left: -18px;
             top: 0;
           }
           &:not(:last-of-type){
-            margin-right: 36px;
+            margin-right: $space*3.6;
             &:after{
               position: absolute;
               content: '';
               transform: translateY(-50%);
               top: 0;
-              right: -18px;
-              background: gray;
-              height: 8px;
+              right: -$space * 1.8;
+              background: rgb(207, 207, 207);
+              height: $space*0.8;
               width: 1px;
             }
           }
@@ -114,8 +115,8 @@ export default {
           a{
             margin-top: 5px;
             position: relative;
-            width: 156px;
-            height: 156px;
+            width: $space*10;
+            height: $space*10;
             transition: $common-transition;
             .--lazy-img{
               z-index: 3;

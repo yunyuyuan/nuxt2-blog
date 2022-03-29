@@ -48,7 +48,7 @@ export default {
 
 <style lang="scss">
 @import "assets/style/var";
-
+$space: 16px;
 .knowledge-list{
   width: 800px;
   padding-bottom: 60px;
@@ -94,7 +94,7 @@ export default {
       align-items: center;
       width: 100%;
       text-decoration: none;
-      padding: 25px 0 15px 0;
+      padding: $space*2 0 $space*1.5 0;
       transition: $common-transition;
       border-radius: 5px;
       position: relative;
@@ -105,7 +105,7 @@ export default {
         position: absolute;
         bottom: 0;
         left: 0;
-        background: #e1e1e1;
+        background: #f3f3f3;
       }
       &:not(:last-of-type) {
         margin-bottom: 8px;

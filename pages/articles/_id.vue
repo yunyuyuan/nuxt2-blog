@@ -201,6 +201,7 @@ export default {
           color: $mouse-out-color;
           border-radius: 4px;
           word-break: break-word;
+          margin-bottom: 10px;
           &:before{
             position: absolute;
             content: '';
