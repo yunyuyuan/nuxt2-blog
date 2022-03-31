@@ -9,8 +9,8 @@ $common-transition: all $animation-duration $animation-function;
 $z-index-header: 500;
 $z-index-notify: 1000;
 $z-index-dialog: 10000;
-$font-source-han-sans: "Source Han Sans", system-ui, monospace;
-$font-title: $font-source-han-sans;
+$font-source-han-sans: unset;
+// $font-source-han-sans: "Source Han Sans", system-ui, monospace;
 
 @mixin mobile {
   @media screen and (max-width: 768px) {

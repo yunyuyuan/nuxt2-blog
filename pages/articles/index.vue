@@ -81,7 +81,7 @@ export default {
 
 <style lang="scss">
 @import "assets/style/var";
-$space: 16px;
+$space: 14px;
 .article-list{
   width: 800px;
   margin: 0 auto 40px 0;
@@ -141,13 +141,13 @@ $space: 16px;
           }
           b{
             color: $title-color;
-            font-size: 16px;
+            font-size: 17px;
             min-height: 20px;
             line-height: 20px;
             display: block;
             transition: $common-transition;
             word-break: break-word;
-            font-family: $font-title;
+            font-family: $font-source-han-sans;
             letter-spacing: 0.2px;
           }
           .foot{

@@ -145,7 +145,7 @@ export default {
         color: #1d1d1d;
         word-break: break-word;
         letter-spacing: .5px;
-        font-family: $font-title;
+        font-family: $font-source-han-sans;
       }
       article{
         position: relative;

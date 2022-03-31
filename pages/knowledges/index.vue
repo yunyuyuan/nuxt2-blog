@@ -135,7 +135,7 @@ $space: 16px;
           color: $title-color;
           margin: 0 4px;
           line-height: 22px;
-          font-family: $font-title;
+          font-family: $font-source-han-sans;
         }
       }
       time {

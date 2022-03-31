@@ -104,7 +104,7 @@ export default {
           margin-bottom: 15px;
           position: relative;
           width: 100%;
-          font-family: $font-title;
+          font-family: $font-source-han-sans;
           word-break: break-word;
           a{
             position: absolute;
