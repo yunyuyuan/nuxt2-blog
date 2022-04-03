@@ -80,6 +80,7 @@ export default {
 </script>
 
 <style lang="scss">
+@use 'sass:math';
 @import "assets/style/var";
 $space: 14px;
 .article-list{
@@ -87,7 +88,7 @@ $space: 14px;
   margin: 0 auto 40px 0;
   align-items: flex-start;
   .head{
-    margin: $space $space*2;
+    margin: $space *2;
     align-self: stretch;
     .tags{
       flex-wrap: wrap;
@@ -151,7 +152,7 @@ $space: 14px;
             letter-spacing: 0.2px;
           }
           .foot{
-            margin-top: $space / 1.5;
+            margin-top: math.div($space, 1.5);
             font-size: 13px;
             color: $footer-color;
             transition: $common-transition;
