@@ -5,8 +5,8 @@
       <p v-for="p in paragraphs">{{ p }}</p>
     </div>
     <div class="status">
-      Last build &lt;<a target="_blank" :href="commitUrl">{{ sha }}</a
-      >&gt; successed at
+      Last build &lt;
+      <a target="_blank" :href="commitUrl">{{ sha }}</a>&gt; successed at
       <time>{{ buildTime }}</time>
     </div>
   </div>
@@ -15,6 +15,7 @@
 <script>
 import outerwilds from "~/assets/image/outerwilds.jpg";
 import config from "@/config";
+import { inBrowser } from "~/utils/utils";
 
 export default {
   name: "index",
@@ -29,7 +30,9 @@ export default {
     };
   },
   async created() {
-    this.buildTime = await (await fetch("/timestamp.txt")).text();
+    if (inBrowser) {
+      this.buildTime = await (await fetch("/timestamp.txt")).text();
+    }
   },
   computed: {
     commitUrl() {
