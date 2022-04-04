@@ -2,11 +2,9 @@ import articleList from "~/rebuild/json/article.json";
 import recordList from "~/rebuild/json/record.json";
 import knowledgeList from "~/rebuild/json/knowledge.json";
 import {inBrowser} from "~/utils/utils";
+import union from 'lodash/union';
 
-const articleTagList = new Set();
-articleList.forEach(item => {
-  item.tags.forEach(v => articleTagList.add(v));
-})
+const articleTagList = union(articleList.reduce((prev, current) => [...prev, ...current.tags], []));
 
 // const knowledgeTypeList = new Set();
 // knowledgeList.forEach(item => {

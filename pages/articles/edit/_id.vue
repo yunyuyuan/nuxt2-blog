@@ -16,12 +16,13 @@
         <div class="tags" @click="$refs.inputTag.focus()">
           <div class="flex s100">
             <the-tag v-for="tag in inputTags">{{ tag }}</the-tag>
+            <p v-if="!inputTags.length">请输入标签</p>
           </div>
           <input
             ref="inputTag"
             class="s100"
             v-model="tags"
-            placeholder="标签，英文逗号分隔"
+            placeholder="请输入标签，英文逗号分隔"
           />
         </div>
         <md-editor
@@ -49,6 +50,7 @@ import MyButton from "~/comps/button";
 import { cloneDeep } from "lodash/lang";
 import { getNow } from "~/utils/_dayjs";
 import MdEditor from "~/comps/mdEditor";
+import union from 'lodash/union';
 
 export default {
   name: "edit",
@@ -86,7 +88,7 @@ export default {
       return this.encryptor_();
     },
     inputTags() {
-      return !this.tags ? [] : this.tags.split(",").filter(tag => !!tag);
+      return !this.tags ? [] : union(this.tags.split(",").map(tag => tag.trim()).filter(tag => !/^\s*$/.test(tag)));
     },
   },
   inject: ["encryptor_"],
@@ -229,6 +231,7 @@ export default {
         border: 1px solid gray;
         border-radius: 4px;
         position: relative;
+        padding: 0 8px;
         div {
           position: absolute;
           left: 0;
@@ -237,6 +240,11 @@ export default {
           overflow: auto;
           >.common-tag {
             margin-left: 8px;
+          }
+          > p {
+            padding-left: 10px;
+            font-size: 15px;
+            color: grey;
           }
         }
         input {
@@ -247,6 +255,8 @@ export default {
           z-index: 1;
           border: none;
           font-size: 15px;
+          padding: 0 10px;
+          width: calc(100% - 20px);
           &:focus {
             opacity: 1;
             z-index: 3;
