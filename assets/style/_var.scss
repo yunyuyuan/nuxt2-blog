@@ -1,0 +1,19 @@
+$background: #fff;
+$title-color: #006e79;
+$title-color-hover: #2bb8c5;
+$header-height: 48px;
+$footer-height: 56px;
+$animation-duration: 0.25s;
+$animation-function: cubic-bezier(0, 0, 0, 1);
+$common-transition: all $animation-duration $animation-function;
+$z-index-header: 500;
+$z-index-notify: 1000;
+$z-index-dialog: 10000;
+$font-source-han-sans: unset;
+// $font-source-han-sans: "Source Han Sans", system-ui, monospace;
+
+@mixin mobile {
+  @media screen and (max-width: 768px) {
+    @content
+  }
+}

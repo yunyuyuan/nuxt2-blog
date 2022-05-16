@@ -1,0 +1,33 @@
+{
+  "name": "nuxt2-blog",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt --hostname 0.0.0.0",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "axios": "^0.24.0",
+    "clipboard": "^2.0.10",
+    "core-js": "^3.15.1",
+    "crypto-js": "^4.1.1",
+    "headroom.js": "^0.12.0",
+    "nuxt": "^2.15.7",
+    "perfect-scrollbar": "^1.5.3",
+    "v-viewer": "^1.6.4"
+  },
+  "devDependencies": {
+    "@nuxt/types": "^2.15.7",
+    "dayjs": "^1.10.7",
+    "highlight.js": "^11.3.1",
+    "lodash": "^4.17.21",
+    "pangu": "^4.0.7",
+    "raw-loader": "^4.0.2",
+    "sass": "^1.43.4",
+    "showdown": "^1.9.1",
+    "svg-sprite-loader": "^6.0.11",
+    "vue": "^2.6.14"
+  }
+}

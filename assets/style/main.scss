@@ -1,0 +1,71 @@
+@import "var";
+html {
+  scroll-behavior: smooth;
+}
+html, body{
+  min-width: 100%;
+  background: $background;
+  display: flex;
+}
+*{
+  margin: 0;
+  padding: 0;
+  &.flex{
+    display: flex;
+    align-items: center;
+  }
+  &.flexc{
+    @extend .flex;
+    flex-direction: column;
+  }
+  &.w100{
+    width: 100%;
+  }
+  &.h100{
+    height: 100%;
+  }
+  &.s100{
+    width: 100%;
+    height: 100%;
+  }
+}
+#body{
+  min-height: calc(100vh - #{$header-height + $footer-height});
+  padding-top: $header-height;
+}
+#__nuxt {
+  margin: auto;
+}
+@include mobile{
+  #__nuxt  {
+    width: 100%;
+  }
+}
+input, textarea, select {
+  border: 1px solid gray;
+  transition: border $animation-duration $animation-function,box-shadow $animation-duration $animation-function;
+  border-radius: 4px;
+  background: #fff;
+  outline: none;
+  &:hover {
+    border-color: black;
+  }
+  &:focus {
+    box-shadow: 0 0 8px rgb(255 158 55 / 40%);
+    border-color: #ce9a53;
+    background: white;
+  }
+}
+input, textarea, button {
+  outline: none;
+}
+textarea {
+  line-height: 25px;
+  font-family: $font-source-han-sans;
+  font-weight: 400;
+}
+img[data-viewer] {
+  cursor: zoom-in;
+}
+@import "source-code-pro";
+// @import "source-han-sans";
